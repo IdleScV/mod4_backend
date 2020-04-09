@@ -1,0 +1,2 @@
+class PromptDataController < ApplicationController
+end

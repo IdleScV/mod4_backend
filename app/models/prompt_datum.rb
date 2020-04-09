@@ -1,0 +1,3 @@
+class PromptDatum < ApplicationRecord
+    
+end
