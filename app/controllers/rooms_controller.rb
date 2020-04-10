@@ -22,8 +22,20 @@ class RoomsController < ApplicationController
         room = Room.find_by(room_number: params[:id])
         host_user = room.user_rooms.where(:host => true)
         users = room.users
+        
         render json: {room_status: room.status, user_list: users, host: host_user[0].user }
-
     end
 
+
+    def update
+        # byebug
+        room = Room.where(:room_number => params[:id]).last
+        if room.users.length > 1
+            room.status = 'closed'
+            room.save
+            render json: {message: "Starting Game"}
+        else
+            render json: {error: "Not Enough Players"}
+        end
+    end
 end
