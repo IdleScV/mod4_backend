@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_145424) do
+ActiveRecord::Schema.define(version: 2020_04_09_145353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,12 @@ ActiveRecord::Schema.define(version: 2020_04_09_145424) do
   create_table "drawings", force: :cascade do |t|
     t.bigint "round_id", null: false
     t.bigint "user_id", null: false
-    t.string "prompt"
+    t.bigint "prompt_datum_id", null: false
     t.string "drawing"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["prompt_datum_id"], name: "index_drawings_on_prompt_datum_id"
     t.index ["round_id"], name: "index_drawings_on_round_id"
     t.index ["user_id"], name: "index_drawings_on_user_id"
   end
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_145424) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "drawings", "prompt_data"
   add_foreign_key "drawings", "rounds"
   add_foreign_key "drawings", "users"
   add_foreign_key "rounds", "rooms"

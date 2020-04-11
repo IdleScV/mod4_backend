@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
 
         rooms = Room.all 
         render json: rooms
+        
     end
 
     def create 
@@ -30,12 +31,24 @@ class RoomsController < ApplicationController
     def update
         # byebug
         room = Room.where(:room_number => params[:id]).last
-        if room.users.length > 1
+        if room.users.length >= 1
             room.status = 'closed'
             room.save
+            round = Round.create(room: room, status: "drawing")
             render json: {message: "Starting Game"}
         else
             render json: {error: "Not Enough Players"}
         end
     end
 end
+
+# def creatingdrawing #for a single user
+#     room = Room.where(:room_number => params[:id]).last
+#     round = room.rounds.last
+#     Drawing.create(drawing: params[:drawingData], prompt_id: params[:prompt_id], user_id: params[:user_id], status: "finished")
+#     if round.drawings.length == room.users.length
+#         render json: round.drawings
+#     else 
+#         render json: {message: "Refresh again"}
+#     end
+# end

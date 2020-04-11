@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   resources :user_rooms
   resources :rooms
   resources :users
+
+
+  get 'random_prompt', :to => 'prompt_data#random'
+  get 'refresh_images/:id', :to => "drawings#refresh"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
