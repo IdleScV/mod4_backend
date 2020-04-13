@@ -16,7 +16,7 @@ class UserRoomsController < ApplicationController
         #We can use room.userrooms
         #We can iterate through each user by doing  room.user_rooms[0].user
         if room
-            if room.status == "open"
+            if room.status == "open" && room.users.length < room.max_number
                 # Checks if user_room instance doesn't exist in the room
         
 
@@ -40,7 +40,7 @@ class UserRoomsController < ApplicationController
                     render json: {users: users, roomnum: params[:roomNum] }
                 end  
             else
-            render json: {message: "Room no longer open"}
+            render json: {message: "Room not open or full"}
             end
         else
             render json: {message: "Room doesn't exist"}
@@ -51,18 +51,56 @@ class UserRoomsController < ApplicationController
         # Need
         # params[:roomNum] params[:firebase_id]
         
-        room = Room.where(:room_number => params[:id])
-        user = User.where(:firebase_id => params[:firebase_id])
+        room = Room.where(:room_number => params[:id]).last
+        user = User.where(:firebase_id => params[:firebase_id]).last
         
         
-        userroom = UserRoom.where(:user => user[0], :room => room[0])
+        userroom = UserRoom.where(:user => user, :room => room).last
       
-        if userroom[0].host == true
-            room[0].user_rooms.destroy_all
-            room[0].delete
+        if userroom.host == true
+            room.user_rooms.destroy_all
+            room.delete
         else
-            userroom[0].delete
+            userroom.delete
         end
         
     end
+
+    def leavecurrentroom
+        room = Room.where(:room_number => params[:id]).last
+        user = User.where(:firebase_id => params[:firebase_id]).last
+       
+        
+        userroom = UserRoom.where(:user => user, :room => room).last
+      
+        if userroom.host == true
+            room.user_rooms.destroy_all
+            render json: {room_number: room}
+        else
+            userroom.delete
+        end
+    end
+
+
+    def hoststartnewround
+        room = Room.where(:room_number => params[:id]).last
+        user = User.where(:firebase_id => params[:firebase_id])
+        
+        room.status = "open"
+        room.save
+        render json: {message: "success"}
+    end
+
+    def gueststartnewround
+        room = Room.where(:room_number => params[:id]).last
+        user = User.where(:firebase_id => params[:firebase_id])
+
+        if room.status == "open"
+            render json: {message: "success"}
+        else
+            render json: {message: "host hasn't started another round, wait or join again later"}
+        end
+    end
+
+
 end

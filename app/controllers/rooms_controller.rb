@@ -24,7 +24,7 @@ class RoomsController < ApplicationController
         host_user = room.user_rooms.where(:host => true)
         users = room.users
         
-        render json: {room_status: room.status, user_list: users, host: host_user[0].user }
+        render json: {room_status: room.status, user_list: users, host: host_user[0].user, maxNum: room.max_number }
     end
 
 

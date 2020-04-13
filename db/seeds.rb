@@ -8,10 +8,11 @@
 
 UserRoom.destroy_all
 Review.destroy_all
-User.destroy_all
+
 Drawing.destroy_all
 Round.destroy_all
 Room.destroy_all
+User.destroy_all
 PromptDatum.destroy_all
 
 
@@ -19,25 +20,17 @@ PromptDatum.destroy_all
 
 
 
-PromptDatum.create(prompt: "Draw a Cow")
-PromptDatum.create(prompt: "Draw a Rabbit")
-PromptDatum.create(prompt: "Draw a Deer")
-PromptDatum.create(prompt: "Draw a Red Neck")
-PromptDatum.create(prompt: "Draw a Cayote")
-PromptDatum.create(prompt: "Draw a Mickey Mouse")
-PromptDatum.create(prompt: "Draw a Bubble Tea")
-PromptDatum.create(prompt: "Draw a PENIS")
-PromptDatum.create(prompt: "Draw a Tentacle")
-
-PromptDatum.create(prompt: "Draw a Cow")
-
-PromptDatum.create(prompt: "Draw a Tenticle")
-
-
-PromptDatum.create(prompt: "Draw a Alan")
-
-
-PromptDatum.create(prompt: "Draw Anything")
-PromptDatum.create(prompt: "Draw Sue")
-PromptDatum.create(prompt: "Draw Donald Trump")
-PromptDatum.create(prompt: "Draw a Wesley")
+PromptDatum.create(prompt: "Cow")
+PromptDatum.create(prompt: "Cloud with eyes, throwing up a rainbow")
+PromptDatum.create(prompt: "Deer")
+PromptDatum.create(prompt: "Red Neck")
+PromptDatum.create(prompt: "Coyote")
+PromptDatum.create(prompt: "Mickey Mouse")
+PromptDatum.create(prompt: "Bubble Tea")
+PromptDatum.create(prompt: "PENIS")
+PromptDatum.create(prompt: "Tentacle")
+PromptDatum.create(prompt: "Hello Kitty with a Scythe")
+PromptDatum.create(prompt: "Kangaroo")
+PromptDatum.create(prompt: "Cow")
+PromptDatum.create(prompt: "Tesseract on this two dimensional plane - good luck 8)")
+PromptDatum.create(prompt: "Tenticle")
