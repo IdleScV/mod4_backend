@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get 'random_prompt', :to => 'prompt_data#random'
   get 'refresh_images/:id', :to => "drawings#refresh"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  post 'round_reviews', :to => 'reviews#refresh'
 end
