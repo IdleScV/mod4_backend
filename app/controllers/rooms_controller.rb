@@ -27,7 +27,6 @@ class RoomsController < ApplicationController
         render json: {room_status: room.status, user_list: users, host: host_user[0].user, maxNum: room.max_number }
     end
 
-
     def update
         # byebug
         room = Room.where(:room_number => params[:id]).last
