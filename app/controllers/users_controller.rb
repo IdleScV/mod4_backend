@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     def show
 
         user = User.find_by(params[:id])
-        drawings = users.drawings
+        drawings = user.drawings
         reviews = drawings.map{|d| d.reviews}
         prompt = drawings.map{|d| d.prompt_datum}
 
