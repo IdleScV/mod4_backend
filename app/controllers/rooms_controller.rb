@@ -41,13 +41,3 @@ class RoomsController < ApplicationController
     end
 end
 
-# def creatingdrawing #for a single user
-#     room = Room.where(:room_number => params[:id]).last
-#     round = room.rounds.last
-#     Drawing.create(drawing: params[:drawingData], prompt_id: params[:prompt_id], user_id: params[:user_id], status: "finished")
-#     if round.drawings.length == room.users.length
-#         render json: round.drawings
-#     else 
-#         render json: {message: "Refresh again"}
-#     end
-# end

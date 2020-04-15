@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     def show
 
         user = User.find_by(params[:id])
+        user.drawings
         if user  
             render json: {drawings: user.drawings, username: user.username}
         else 

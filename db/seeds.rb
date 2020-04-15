@@ -19,14 +19,13 @@ PromptDatum.destroy_all
 
 
 
-
 PromptDatum.create(prompt: "Cow")
 PromptDatum.create(prompt: "Cloud with eyes, throwing up a rainbow 🌈🌥")
 PromptDatum.create(prompt: "Deer in headlights... literally")
 PromptDatum.create(prompt: "Fast lil lad who leaps over candles")
 PromptDatum.create(prompt: "Yung Keanu Reeves")
-PromptDatum.create(promt: "Sanic... not Sonic, SANIC")
-PromptDatum.create(promt: "Squid doing the uh oh oopsie")
+PromptDatum.create(prompt: "Sanic... not Sonic, SANIC")
+PromptDatum.create(prompt: "Squid doing the uh oh oopsie")
 PromptDatum.create(prompt: "Blood Shed Event that has occurred over a Roll of Toilet Paper")
 PromptDatum.create(prompt: "Red Neck")
 PromptDatum.create(prompt: "HummingBird giving a flower the SUCC ")
@@ -43,7 +42,6 @@ PromptDatum.create(prompt: "Hello Kitty with a Scythe")
 PromptDatum.create(prompt: "Kangaroo")
 PromptDatum.create(prompt: "Cow")
 PromptDatum.create(prompt: "Tesseract on this two dimensional plane - good luck 8)")
-PromptDatum.create(prompt: "")
 PromptDatum.create(prompt: "Peacock with the head of a horse")
 PromptDatum.create(prompt: "Black Hole ")
 PromptDatum.create(prompt: "Leprechaun")
