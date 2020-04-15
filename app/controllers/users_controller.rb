@@ -13,8 +13,12 @@ class UsersController < ApplicationController
 
     def show
 
-        user = User.find_by(params[:firebaseId])
-        render json: user.drawings
+        user = User.find_by(params[:id])
+        if user  
+            render json: {drawings: user.drawings, username: user.username}
+        else 
+            render json: {message: "user has not played any games"}
+        end
 
     end
 
