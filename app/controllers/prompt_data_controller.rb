@@ -14,4 +14,3 @@ class PromptDataController < ApplicationController
         render json: prompts[num]
     end
 end
-e
